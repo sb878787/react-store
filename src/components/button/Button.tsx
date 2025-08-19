@@ -3,7 +3,7 @@ import React, { type ComponentProps } from "react";
 type TVariant = "primary" | "secondary" | "danger" | "warning" | "success";
 
 type TButton = ComponentProps<"button"> & {
-  variant: TVariant;
+  variant?: TVariant;
 };
 
 function Button({ children, variant, style, ...rest }: TButton) {
@@ -12,7 +12,7 @@ function Button({ children, variant, style, ...rest }: TButton) {
 
 export default Button;
 
-function checkVariant(variant: TVariant) {
+function checkVariant(variant?: TVariant) {
   if (variant === "primary") {
     return { backgroundColor: "blue", color: "white" };
   } else if (variant === "secondary") {
