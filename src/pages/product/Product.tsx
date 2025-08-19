@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Container from "../../components/container/Container";
+import Button from "../../components/button/Button";
 
 function Product() {
   const params = useParams();
@@ -29,7 +30,9 @@ function Product() {
             />
 
             <div>
-                <button>افزودن به سبد خرید</button>
+                <Button className="mt-2 w-full rounded py-3" variant="primary">
+                    افزودن به سبد خرید
+                </Button>
             </div>
           </div>
         </div>
