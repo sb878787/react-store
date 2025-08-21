@@ -13,6 +13,7 @@ interface IShoppingCartContext {
   cartItems: ICartItem[];
   handleIncreaseProductQty: (id: number) => void;
   handleDecreaseProductQty: (id: number) => void;
+  getProductQty: (id: number) => number;
 }
 
 export const ShoppingCartContext = createContext({} as IShoppingCartContext);
@@ -57,9 +58,15 @@ export function ShoppingCartProvider({ children }: IShoppingCartContextType) {
     });
   };
 
+  const getProductQty = (id: number) => {
+    const existingProduct = cartItems.find((product) => product.id === id);
+    
+    return existingProduct ? existingProduct.qty : 0;
+  }
+
   return (
     <ShoppingCartContext.Provider
-      value={{ cartItems, handleIncreaseProductQty, handleDecreaseProductQty }}
+      value={{ cartItems, handleIncreaseProductQty, handleDecreaseProductQty, getProductQty }}
     >
       {children}
     </ShoppingCartContext.Provider>
