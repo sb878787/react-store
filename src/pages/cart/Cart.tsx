@@ -11,7 +11,9 @@ function Cart() {
     <div>
       <Container>
         <div>
-          <CartItem />
+          {cartItems.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
         </div>
 
         <div className="bg-gray-200 rounded p-6">
