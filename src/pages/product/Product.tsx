@@ -10,7 +10,8 @@ function Product() {
   const params = useParams<{ id: string }>();
   const [product, setProduct] = useState<IProduct>();
 
-  const { handleIncreaseProductQty, handleDecreaseProductQty, getProductQty } = useShoppingCartContext();
+  const { handleIncreaseProductQty, handleDecreaseProductQty, getProductQty, handleRemoveProduct } =
+    useShoppingCartContext();
 
   useEffect(() => {
     getProductById(params.id as string).then((product) => {
@@ -47,31 +48,43 @@ function Product() {
                   افزودن به سبد خرید
                 </Button>
               ) : (
-                <div className="grid grid-cols-3">
-                  <Button
-                    className="mt-2 w-full rounded py-3 cursor-pointer"
-                    variant="primary"
-                    onClick={() =>
-                      handleIncreaseProductQty(parseInt(params.id as string))
-                    }
-                  >
-                    +
-                  </Button>
+                <>
+                  <div className="grid grid-cols-3">
+                    <Button
+                      className="mt-2 w-full rounded py-3 cursor-pointer"
+                      variant="primary"
+                      onClick={() =>
+                        handleIncreaseProductQty(parseInt(params.id as string))
+                      }
+                    >
+                      +
+                    </Button>
 
-                  <span className="flex items-center justify-center">
-                    {getProductQty(parseInt(params.id as string))}
-                  </span>
+                    <span className="flex items-center justify-center">
+                      {getProductQty(parseInt(params.id as string))}
+                    </span>
+
+                    <Button
+                      className="mt-2 w-full rounded py-3 cursor-pointer"
+                      variant="primary"
+                      onClick={() =>
+                        handleDecreaseProductQty(parseInt(params.id as string))
+                      }
+                    >
+                      -
+                    </Button>
+                  </div>
 
                   <Button
-                    className="mt-2 w-full rounded py-3 cursor-pointer"
-                    variant="primary"
-                    onClick={() =>
-                      handleDecreaseProductQty(parseInt(params.id as string))
-                    }
-                  >
-                    -
-                  </Button>
-                </div>
+                  className="mt-2 w-full rounded py-3 cursor-pointer"
+                  variant="danger"
+                  onClick={() =>
+                    handleRemoveProduct(parseInt(params.id as string))
+                  }
+                >
+                  حذف از سبد خرید
+                </Button>
+                </>
               )}
             </div>
           </div>
