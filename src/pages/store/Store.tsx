@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from "react";
+// React Import
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+// Components Import
 import ProductItem from "../../components/productItem/ProductItem";
 import Container from "../../components/container/Container";
-import { Link } from "react-router-dom";
-import { getProducts } from "../../services/api";
+
+// Types Import
 import type { TProducts } from "../../types/products";
+
+// Services Import
+import { getProducts } from "../../services/api";
 
 function Store() {
   const [products, setProducts] = useState<TProducts>([]);

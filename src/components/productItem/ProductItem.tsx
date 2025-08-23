@@ -1,4 +1,4 @@
-import React from "react";
+// Types Import
 import type { IProduct } from "../../types/products";
 
 function ProductItem({title, price, image, description}: IProduct) {

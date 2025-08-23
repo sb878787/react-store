@@ -1,9 +1,18 @@
-import React, { use, useEffect, useState } from "react";
-import Button from "../button/Button";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { getProductById } from "../../services/api";
-import type { IProduct } from "../../types/products";
+// React Import
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+// Components Import
+import Button from "../button/Button";
+
+// Contexts Import
+import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+
+// Types Import
+import type { IProduct } from "../../types/products";
+
+// Services Import
+import { getProductById } from "../../services/api";
 
 interface ICartItem {
   id: number;

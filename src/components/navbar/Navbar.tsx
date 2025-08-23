@@ -1,6 +1,10 @@
-import React from "react";
+// React Import
 import { Link } from "react-router-dom";
+
+// Components Import
 import Container from "../container/Container";
+
+// Contexts Import
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Navbar() {
@@ -22,7 +26,7 @@ function Navbar() {
           <div>
             <Link to="/cart">
               <button>سبد خرید</button>
-              
+
               {cartQty > 0 && (
                 <span className="bg-red-500 text-white rounded-full px-2 py-1 text-xs ml-1">
                   {cartQty}
