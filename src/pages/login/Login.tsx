@@ -10,7 +10,7 @@ function Login() {
     <div>
       <Container>
         <div className="bg-slate-300 p-12 rounded">
-          <input type="text" placeholder="useename" />
+          <input type="text" placeholder="username" />
           <input type="password" placeholder="password" />
 
           <Button onClick={handleLogin}>Login</Button>
