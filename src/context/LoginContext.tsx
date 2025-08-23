@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { login } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 interface ILoginContextType {
   children: React.ReactNode;
@@ -6,7 +8,7 @@ interface ILoginContextType {
 
 interface ILoginContext {
   isLogin: boolean;
-  handleLogin: () => void;
+  handleLogin: (username: string, password: string) => void;
   handleLogout: () => void;
 }
 
@@ -23,13 +25,32 @@ export const useLoginContext = () => {
 
 export function LoginProvider({ children }: ILoginContextType) {
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = (username: string, password: string) => {
+    login(username, password).then((res) => {
+      let token = res.token;
+      localStorage.setItem("token", token);
+      setIsLogin(true);
+    });
+
     setIsLogin(true);
+
+    navigate("/");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      setIsLogin(true);
+    }
+  }, []);
 
   const handleLogout = () => {
     setIsLogin(false);
+    navigate("/login");
+    localStorage.removeItem("token");
   };
 
   return (
