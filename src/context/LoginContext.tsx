@@ -1,6 +1,9 @@
+// React Import
 import { createContext, useContext, useEffect, useState } from "react";
-import { login } from "../services/api";
 import { useNavigate } from "react-router-dom";
+
+// Services Import
+import { login } from "../services/api";
 
 interface ILoginContextType {
   children: React.ReactNode;

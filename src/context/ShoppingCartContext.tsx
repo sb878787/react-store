@@ -1,4 +1,7 @@
+// React Import
 import { createContext, useContext } from "react";
+
+// Hooks Import
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface IShoppingCartContextType {

@@ -1,6 +1,11 @@
+// React Import
 import React, { useState } from "react";
+
+// Components Import
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
+
+// Contexts Import
 import { useLoginContext } from "../../context/LoginContext";
 
 function Login() {

@@ -1,6 +1,8 @@
-import React from "react";
-import { useLoginContext } from "../../context/LoginContext";
+// React Import
 import { Navigate, Outlet } from "react-router-dom";
+
+// Contexts Import
+import { useLoginContext } from "../../context/LoginContext";
 
 function PrivateRoute() {
   const { isLogin } = useLoginContext();

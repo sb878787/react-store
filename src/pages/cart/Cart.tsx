@@ -1,7 +1,9 @@
-import React from "react";
+// Components Import
 import Container from "../../components/container/Container";
 import CartItem from "../../components/cartItem/CartItem";
 import Button from "../../components/button/Button";
+
+// Contexts Import
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Cart() {

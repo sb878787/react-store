@@ -1,4 +1,7 @@
-import React, { type ReactNode } from "react";
+// React Import
+import { type ReactNode } from "react";
+
+// Components Import
 import Navbar from "../navbar/Navbar";
 
 interface ILayout {

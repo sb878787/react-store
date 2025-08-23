@@ -1,17 +1,30 @@
-import React, { useEffect, useState } from "react";
+// React Import
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+// Components Import
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
-import { getProductById } from "../../services/api";
+
+// Types Import
 import type { IProduct } from "../../types/products";
+
+// Contexts Import
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+
+// Services Import
+import { getProductById } from "../../services/api";
 
 function Product() {
   const params = useParams<{ id: string }>();
   const [product, setProduct] = useState<IProduct>();
 
-  const { handleIncreaseProductQty, handleDecreaseProductQty, getProductQty, handleRemoveProduct } =
-    useShoppingCartContext();
+  const {
+    handleIncreaseProductQty,
+    handleDecreaseProductQty,
+    getProductQty,
+    handleRemoveProduct,
+  } = useShoppingCartContext();
 
   useEffect(() => {
     getProductById(params.id as string).then((product) => {
@@ -76,14 +89,14 @@ function Product() {
                   </div>
 
                   <Button
-                  className="mt-2 w-full rounded py-3 cursor-pointer"
-                  variant="danger"
-                  onClick={() =>
-                    handleRemoveProduct(parseInt(params.id as string))
-                  }
-                >
-                  حذف از سبد خرید
-                </Button>
+                    className="mt-2 w-full rounded py-3 cursor-pointer"
+                    variant="danger"
+                    onClick={() =>
+                      handleRemoveProduct(parseInt(params.id as string))
+                    }
+                  >
+                    حذف از سبد خرید
+                  </Button>
                 </>
               )}
             </div>
